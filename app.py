@@ -40,7 +40,7 @@ def check_run(client, thread_id, run_id):
         elif run.status == "expired":
             print(f"{Fore.RED}Run is expired.{Style.RESET_ALL}")
             return None
-        print(f"{Fore.YELLOW}OpenAI: Run is not yet completed. Waiting...{run.status}{Style.RESET_ALL}")
+        # print(f"{Fore.YELLOW}OpenAI: Run is not yet completed. Waiting...{run.status}{Style.RESET_ALL}")
         time.sleep(1)
 
 # Function to interact with the assistant
@@ -65,15 +65,17 @@ def chat_loop(client, assistant, thread, user_input):
 
         # Retrieve the latest messages from the assistant
         messages = client.beta.threads.messages.list(thread_id=thread.id)
-        for message in messages.data[::-1]:
-            if message.role == "assistant":
-                print(f"{Fore.BLUE}Assistant: {message.content[0].text.value}{Style.RESET_ALL}")
-                break
+        print(f"{Fore.BLUE}Assistant: {messages.data[0].content[0].text.value}{Style.RESET_ALL}")
+
+        # for message in messages.data:
+        #     if message.role == "assistant":
+        #         print(f"{Fore.BLUE}Assistant: {message.content[0].text.value}{Style.RESET_ALL}")
+        #         break
 
         user_input = input(f"{Fore.CYAN}User: {Style.RESET_ALL}")
 
 def main():
-    load_dotenv()  # Load environment variables from .env file (or from system environment).
+    load_dotenv(override=True, dotenv_path=".env")  # take environment variables from .env.
     openai.api_key = os.getenv("OPENAI_API_KEY")  # Set the OpenAI API key
 
     # Initialize the OpenAI client with the API key
