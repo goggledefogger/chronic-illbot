@@ -2,7 +2,7 @@
 
 ## Overview
 
-CISA - Chronic Illbot Support Assistant is designed to enhance the daily management of chronic illnesses for those seeking a supportive tool to assist with symptom tracking, wellness information, and emotional support. It's an AI-powered application that complements the support provided by healthcare professionals.
+CISA - Chronic Illbot Support Assistant is designed to help with the daily management of chronic illnesses for those seeking a supportive tool to assist with symptom tracking, wellness information, and emotional support. It's an AI-powered application that complements the support provided by healthcare professionals, especially when they aren't meeting your needs.
 
 ## How It Helps
 
